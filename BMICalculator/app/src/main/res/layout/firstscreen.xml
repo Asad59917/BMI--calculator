@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/firstscreen"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/startscreen"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="-50dp"
+        android:id="@+id/centerhorizontaline" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/centerVerticalline" />
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/bmivector"
+        android:layout_above="@id/centerhorizontaline"
+        android:id="@+id/vectorimg"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="130dp">
+
+    </ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BMI CALCULATOR"
+        android:textSize="25sp"
+        android:textColor="#F4F3FF"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/vectorimg"
+        android:id="@+id/vectortext"
+        android:layout_marginTop="-120dp">
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Started with Tracking Your Health!"
+        android:textStyle="bold"
+        android:textSize="21sp"
+        android:textColor="#F4F3FF"
+        android:layout_below="@id/vectortext"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:id="@+id/secondtext">
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calculate your BMI and stay on top of
+your wellness journey, effortlessly."
+        android:textSize="13sp"
+        android:textColor="#ADF4F3FF"
+        android:layout_below="@id/secondtext"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginEnd="55dp"
+        android:id="@+id/thirdtext">
+    </TextView>
+
+
+
+
+
+
+
+    <android.widget.Button
+        android:layout_width="332dp"
+        android:layout_height="60dp"
+        android:id="@+id/getstartedbutton"
+        android:elevation="9dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:textSize="17sp"
+        android:layout_marginBottom="50dp"
+        android:text="Get Started"
+        android:textColor="#6C63FF"
+        android:background="@drawable/btnstyestartscreen"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textStyle="bold">
+    </android.widget.Button>
+
+
+
+
+
+</RelativeLayout>

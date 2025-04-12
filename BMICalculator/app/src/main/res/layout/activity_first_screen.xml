@@ -2,11 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/firstscreen"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/startscreen"
-    tools:context=".MainActivity">
+    tools:context=".FirstScreen">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -50,12 +50,13 @@
         android:layout_height="wrap_content"
         android:text="Get Started with Tracking Your Health!"
         android:textStyle="bold"
-        android:textSize="21sp"
+        android:textSize="30sp"
         android:textColor="#F4F3FF"
         android:layout_below="@id/vectortext"
-        android:layout_marginTop="50dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
+        android:layout_marginTop="100dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
         android:id="@+id/secondtext">
     </TextView>
 
@@ -64,23 +65,39 @@
         android:layout_height="wrap_content"
         android:text="Calculate your BMI and stay on top of
 your wellness journey, effortlessly."
-        android:textSize="13sp"
+        android:textSize="17sp"
         android:textColor="#ADF4F3FF"
         android:layout_below="@id/secondtext"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
         android:id="@+id/thirdtext">
     </TextView>
 
 
 
-
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColor="#F4F3FF"
+        android:textSize="20sp"
+        android:inputType="text"
+        android:backgroundTint="#FFFFFF"
+        android:layout_above="@id/getstartedbutton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Enter Name"
+        android:textColorHint="#7BF4F3FF">
+    </EditText>
 
 
 
     <android.widget.Button
-        android:layout_width="250dp"
+        android:layout_width="310dp"
         android:layout_height="60dp"
         android:id="@+id/getstartedbutton"
         android:elevation="9dp"
@@ -95,8 +112,6 @@ your wellness journey, effortlessly."
         android:layout_marginRight="20dp"
         android:textStyle="bold">
     </android.widget.Button>
-
-
 
 
 

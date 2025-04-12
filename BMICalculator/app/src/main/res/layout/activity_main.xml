@@ -71,7 +71,7 @@
 
         <ImageView
             android:layout_width="150px"
-            android:layout_height="90px"
+            android:layout_height="150px"
             android:layout_above="@+id/maletext"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="10dp"
@@ -108,7 +108,7 @@
 
         <ImageView
             android:layout_width="150px"
-            android:layout_height="90px"
+            android:layout_height="150px"
             android:layout_above="@+id/femaletext"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="10dp"

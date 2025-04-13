@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:background="@drawable/heightsection"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BMI Results"
+            android:textSize="24sp"
+            android:textColor="#0A2463"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/tvBmiValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="22"
+                android:textSize="64sp"
+                android:textColor="#6665DD"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvBmiDecimal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=".54"
+                android:textSize="32sp"
+                android:textColor="#6665DD"
+                android:layout_gravity="top" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvBmiCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NORMAL BMI"
+            android:textSize="18sp"
+            android:textColor="#0A2463"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Underweight: BMI less than 18.5"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Normal weight: BMI 18.5 to 24.9"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Overweight: BMI 25 to 29.9"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Obesity: 30 to 40"
+            android:textSize="14sp"
+            android:textColor="#333333"/>
+
+        <android.widget.Button
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:id="@+id/okbtn"
+            android:elevation="9dp"
+            android:textSize="17sp"
+            android:layout_marginTop="20dp"
+            android:text="OK"
+            android:textColor="@color/white"
+            android:background="@drawable/buttonstyle"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textStyle="bold">
+        </android.widget.Button>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

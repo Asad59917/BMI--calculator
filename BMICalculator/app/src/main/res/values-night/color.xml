@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#2E3A48</color>
+    <color name="background">#171C22</color>
+    <color name="purple_500">#6C63FF</color>
+    <color name="topsection">#6344D4</color>
+    <color name="progress">#565656</color>
+    <color name="popuptext">#ADADAD</color>
+</resources>

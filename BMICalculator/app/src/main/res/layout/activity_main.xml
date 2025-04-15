@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4F3FF"
+    android:background="@color/background"
     tools:context=".MainActivity">
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="Hello, Asad"
             android:textSize="30sp"
-            android:textColor="#F4F3FF"
+            android:textColor="@color/background"
             android:id="@+id/userGreeting"
             android:textStyle="bold"
             android:layout_alignParentStart="true"
@@ -34,10 +34,29 @@
             android:layout_height="wrap_content"
             android:text="Enter your details to get your BMI"
             android:textSize="22sp"
-            android:textColor="#F4F3FF"
+            android:textColor="@color/background"
             android:layout_marginLeft="40dp"
             android:layout_below="@+id/userGreeting">
         </TextView>
+
+        <!-- Dark Mode Switch Position -->
+        <RelativeLayout
+            android:id="@+id/darkModeContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="30dp">
+
+            <!-- The actual switch will be added here in code -->
+            <Switch
+                android:id="@+id/dswitch"
+                android:layout_width="137dp"
+                android:layout_height="50dp"
+                android:text="Change theme"
+                android:textColor="@color/white"/>
+        </RelativeLayout>
 
 
     </RelativeLayout>
@@ -56,7 +75,7 @@
         android:id="@+id/centerVerticalline" />
 
 
-    
+
     <RelativeLayout
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -76,7 +95,7 @@
             android:layout_above="@+id/maletext"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="10dp"
-            android:src="@drawable/maleicon"
+            android:src="@drawable/male"
             android:layout_centerInParent="true">
         </ImageView>
 
@@ -85,7 +104,7 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="#6C63FF"
+            android:textColor="@color/purple_500"
             android:id="@+id/maletext"
             android:text="Male"
             android:layout_alignParentBottom="true"
@@ -122,7 +141,7 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="#6C63FF"
+            android:textColor="@color/purple_500"
             android:id="@+id/femaletext"
             android:text="Female"
             android:layout_alignParentBottom="true"
@@ -151,7 +170,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#6C63FF"
+            android:textColor="@color/purple_500"
             android:text="Weight"
             android:id="@+id/weighttext"
             android:textAlignment="center"
@@ -166,7 +185,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/currentweight"
             android:text="55"
-            android:textColor="#6C63FF"
+            android:textColor="@color/purple_500"
             android:textSize="30sp"
             android:textStyle="bold"
             android:layout_centerInParent="true"
@@ -179,7 +198,7 @@
             android:layout_height="wrap_content"
             android:text="Kgs"
             android:textSize="15sp"
-            android:textColor="#6C63FF"
+            android:textColor="@color/purple_500"
             android:layout_centerInParent="true"
             android:layout_toEndOf="@id/currentweight"
             android:layout_marginStart="-55dp">
@@ -241,7 +260,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#6C63FF"
+            android:textColor="@color/purple_500"
             android:text="Age"
             android:id="@+id/agetext"
             android:textAlignment="center"
@@ -256,7 +275,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/currentage"
             android:text="25"
-            android:textColor="#6C63FF"
+            android:textColor="@color/purple_500"
             android:textSize="30sp"
             android:textStyle="bold"
             android:layout_centerInParent="true"
@@ -323,7 +342,7 @@
             android:textAlignment="center"
             android:text="Height"
             android:textSize="20sp"
-            android:textColor="#6C63FF"
+            android:textColor="@color/purple_500"
             android:textStyle="bold"
             android:layout_marginTop="15dp">
         </TextView>
@@ -335,7 +354,7 @@
             android:layout_marginBottom="50dp"
             android:textSize="40sp"
             android:layout_alignParentBottom="true"
-            android:textColor="#6C63FF"
+            android:textColor="@color/purple_500"
             android:textStyle="bold"
             android:layout_centerInParent="true"
             android:id="@+id/Currentselectedheight">
@@ -346,7 +365,7 @@
             android:layout_height="wrap_content"
             android:text="cm"
             android:textSize="20sp"
-            android:textColor="#6C63FF"
+            android:textColor="@color/purple_500"
             android:layout_centerInParent="true"
             android:layout_toEndOf="@+id/Currentselectedheight"
             android:layout_marginStart="10dp">
@@ -358,7 +377,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="10dp"
-            android:progressTint="#6C63FF"
+            android:progressTint="@color/purple_500"
             android:max="300"
             android:min="100"
             android:layout_marginRight="10dp"

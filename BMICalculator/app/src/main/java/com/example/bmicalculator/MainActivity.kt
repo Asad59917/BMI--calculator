@@ -1,10 +1,14 @@
 package com.example.bmicalculator
 
+import android.animation.ValueAnimator
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,7 +21,30 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Get user's name from intent and update greeting
+        // Theme switch setup
+        val sharedPreferences = getSharedPreferences("themePrefs", MODE_PRIVATE)
+        val isNightMode = sharedPreferences.getBoolean("night_mode", false)
+
+        if (isNightMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+
+        val darkSwitch = findViewById<Switch>(R.id.dswitch)
+        darkSwitch.isChecked = isNightMode
+
+        darkSwitch.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                sharedPreferences.edit().putBoolean("night_mode", true).apply()
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                sharedPreferences.edit().putBoolean("night_mode", false).apply()
+            }
+        }
+
+        // Greeting setup
         val greetingText = findViewById<TextView>(R.id.userGreeting)
         val userName = intent.getStringExtra("user_name") ?: "User"
         greetingText.text = "Hello, $userName"
@@ -117,6 +144,7 @@ class MainActivity : AppCompatActivity() {
             val tvBmiDecimal = dialogView.findViewById<TextView>(R.id.tvBmiDecimal)
             val tvBmiCategory = dialogView.findViewById<TextView>(R.id.tvBmiCategory)
             val okButton = dialogView.findViewById<Button>(R.id.okbtn)
+            val foregroundProgressBar = dialogView.findViewById<ProgressBar>(R.id.foregroundProgressBar)
 
             val bmiIntPart = bmi.toInt()
             val bmiDecimalPart = "%.2f".format(bmi - bmiIntPart).substring(1) // keeps ".54"
@@ -124,6 +152,18 @@ class MainActivity : AppCompatActivity() {
             tvBmiValue.text = bmiIntPart.toString()
             tvBmiDecimal.text = bmiDecimalPart
             tvBmiCategory.text = bmiCategory
+
+            // Calculate progress percentage based on BMI value
+            val progressValue = calculateProgressFromBmi(bmi)
+
+            // Animate the progress bar filling
+            val progressAnimator = ValueAnimator.ofInt(0, progressValue)
+            progressAnimator.duration = 1500 // Animation duration in milliseconds
+            progressAnimator.interpolator = AccelerateDecelerateInterpolator()
+            progressAnimator.addUpdateListener { animation ->
+                val animatedValue = animation.animatedValue as Int
+                foregroundProgressBar.progress = animatedValue
+            }
 
             val dialog = AlertDialog.Builder(this)
                 .setView(dialogView)
@@ -137,6 +177,25 @@ class MainActivity : AppCompatActivity() {
             }
 
             dialog.show()
+
+            // Start the animation after dialog shows
+            progressAnimator.start()
+        }
+    }
+
+    /**
+     * Calculates a progress percentage (0-100) based on BMI value.
+     * BMI scale: Underweight (<18.5), Normal (18.5-24.9), Overweight (25-29.9), Obese (>30)
+     */
+    private fun calculateProgressFromBmi(bmi: Double): Int {
+        return when {
+            bmi <= 0 -> 0
+            bmi < 15 -> ((bmi / 15) * 25).toInt()  // First quarter (0-25%)
+            bmi < 18.5 -> 25 + (((bmi - 15) / 3.5) * 25).toInt()  // Second quarter (25-50%)
+            bmi < 25 -> 50 + (((bmi - 18.5) / 6.5) * 25).toInt()  // Third quarter (50-75%)
+            bmi < 30 -> 75 + (((bmi - 25) / 5) * 15).toInt()  // Up to 90%
+            bmi < 40 -> 90 + (((bmi - 30) / 10) * 10).toInt()  // Last 10%
+            else -> 100  // Max out at 100%
         }
     }
 }
